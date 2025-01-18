@@ -1,0 +1,210 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999,
+      "description": "A powerful laptop for professionals.",
+      "reviews": [
+        {
+          "id": 1,
+          "user": "John",
+          "comment": "Great product!",
+          "rating": 5
+        },
+        {
+          "id": 2,
+          "user": "Jane",
+          "comment": "Good value for money.",
+          "rating": 4
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Headphones",
+      "category": "Accessories",
+      "price": 199,
+      "description": "Noise-cancelling headphones for music lovers.",
+      "reviews": []
+    },
+    {
+      "id": "3",
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 799,
+      "description": "The latest smartphone with cutting-edge features.",
+      "reviews": [
+        {
+          "id": 3,
+          "user": "Emily",
+          "comment": "Amazing camera quality.",
+          "rating": 5
+        },
+        {
+          "user": "MUHAMMAD ANWAR",
+          "comment": "feterytryfr",
+          "rating": 2,
+          "id": 1737144706641
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Keyboard",
+      "category": "Accessories",
+      "price": 129,
+      "description": "A mechanical keyboard with RGB lighting.",
+      "reviews": []
+    },
+    {
+      "id": "5",
+      "name": "Tablet",
+      "category": "Electronics",
+      "price": 499,
+      "description": "A lightweight tablet perfect for on-the-go use.",
+      "reviews": []
+    },
+    {
+      "id": "6",
+      "name": "Smartwatch",
+      "category": "Accessories",
+      "price": 299,
+      "description": "Track your fitness and stay connected with this smartwatch.",
+      "reviews": []
+    },
+    {
+      "id": "7",
+      "name": "Monitor",
+      "category": "Electronics",
+      "price": 349,
+      "description": "A high-resolution monitor for gaming and productivity.",
+      "reviews": [
+        {
+          "user": "MUHAMMAD SHEES",
+          "comment": "good",
+          "rating": 2,
+          "id": 1737144740182
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Camera",
+      "category": "Electronics",
+      "price": 649,
+      "description": "Capture stunning photos with this professional-grade camera.",
+      "reviews": [
+        {
+          "id": 4,
+          "user": "Alice",
+          "comment": "Perfect for my photography needs!",
+          "rating": 5
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Mouse",
+      "category": "Accessories",
+      "price": 89,
+      "description": "A wireless mouse with ergonomic design.",
+      "reviews": []
+    },
+    {
+      "id": "10",
+      "name": "Speaker",
+      "category": "Accessories",
+      "price": 149,
+      "description": "A portable speaker with deep bass.",
+      "reviews": [
+        {
+          "user": "MUHAMMAD SHEES",
+          "comment": "efwe",
+          "rating": 3,
+          "id": 1737144767791
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "email": "anwarmuhammad@gmail.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "346b",
+      "email": "anwarimdad@gmail.com",
+      "password": "anwar16-",
+      "role": "user"
+    },
+    {
+      "id": "0a36",
+      "email": "anwar@gmail.com",
+      "password": "anwar16"
+    },
+    {
+      "id": "6026",
+      "email": "ali@gmail.com",
+      "password": "ali123"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1737159709995,
+      "items": [
+        {
+          "id": 3,
+          "name": "Headphones",
+          "category": "Accessories",
+          "price": 199,
+          "image": "/static/media/headphones.78225215f96eb330ff45.jpg",
+          "description": "Noise-cancelling headphones.",
+          "quantity": 4
+        }
+      ],
+      "shippingInfo": {
+        "name": "MUHAMMAD ANWAR",
+        "address": "KHANQAH YASEEN ZAI, P.O BOX PANIYALA, TEHSIL PAHARPUR, DISTRICT DERA ISMAIL KHAN",
+        "city": "PESHAWAR",
+        "postalCode": "22010"
+      },
+      "total": 875.6,
+      "date": "2025-01-18T00:21:49.995Z"
+    },
+    {
+      "id": 1737159842605,
+      "items": [
+        {
+          "id": 2,
+          "name": "Head",
+          "category": "Accessories",
+          "price": 49,
+          "image": "/static/media/head.e9cdf02e21bdba00bae0.jpg",
+          "description": "Ergonomic headgear for support.",
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "name": "Monitor",
+          "category": "Electronics",
+          "price": 299,
+          "image": "/static/media/monotor.e0f676f1bca555582ca6.jpg",
+          "description": "4K Ultra HD monitor.",
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "MUHAMMAD ANWAR",
+        "address": "KHANQAH YASEEN ZAI, P.O BOX PANIYALA, TEHSIL PAHARPUR, DISTRICT DERA ISMAIL KHAN",
+        "city": "PESHAWAR",
+        "postalCode": "22010"
+      },
+      "total": 382.8,
+      "date": "2025-01-18T00:24:02.605Z"
+    }
+  ]
+}

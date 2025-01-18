@@ -1,70 +1,151 @@
-# Getting Started with Create React App
+# **TechStore Pro**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TechStore Pro is a modern e-commerce platform designed to showcase and sell tech products. The website features a user-friendly interface, a responsive design, and functionalities such as user authentication, product filtering, cart management, and a streamlined checkout process. 
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## **Features**
 
-### `npm start`
+### **Frontend Features**
+- **Responsive Design**: Fully responsive layout optimized for all devices.
+- **User Authentication**: Login, registration, and role-based redirection (Admin/User).
+- **Dynamic Navbar**: Includes links to all pages, cart counter, and user dropdown menu.
+- **Product Catalog**: Filter and search products by categories with live updates.
+- **Cart Management**: Add, remove, increment, and decrement product quantities.
+- **Checkout Process**: Order summary, shipping information form, and order placement.
+- **Toast Notifications**: Visual feedback for actions like login, logout, and cart operations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Backend (via JSON Server)**
+- **Simulated REST API**: Uses JSON Server to handle products, users, and orders.
+- **Data Persistence**: Fetches and stores data for users, orders, and products.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## **Tech Stack**
+- **Frontend**: React, Tailwind CSS, React Router, Framer Motion, React Icons
+- **Backend**: JSON Server
+- **Deployment**: Vercel (for frontend), Local JSON Server (for backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Getting Started**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Prerequisites**
+1. Node.js installed (v14+ recommended).
+2. Git installed on your system.
+3. A Vercel account for deployment.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### **Cloning the Repository**
+To clone the repository:
+```bash
+git clone https://github.com/your-username/techstore-pro.git
+cd techstore-pro
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### **Setup**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### **1. Install Dependencies**
+Run the following command to install the required dependencies:
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### **2. Start JSON Server**
+Run a JSON server to simulate backend APIs:
+```bash
+npx json-server --watch db.json --port 5000
+```
+Ensure the `db.json` file is present with the correct structure (e.g., users, products, orders).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### **3. Start the Development Server**
+Launch the React app in development mode:
+```bash
+npm start
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## **Project Structure**
+```
+techstore-pro/
+├── src/
+│   ├── assets/          # Images and static assets
+│   ├── components/      # Reusable components (e.g., Navbar, Footer)
+│   ├── context/         # Context API for Auth and Cart
+│   ├── pages/           # Application pages (Home, Products, Cart, etc.)
+│   ├── App.js           # Main app file
+│   └── index.js         # React entry point
+├── public/              # Public files (index.html, manifest.json)
+├── db.json              # JSON Server mock data
+├── package.json         # Project metadata and dependencies
+└── README.md            # Project documentation
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## **Deployment**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### **1. Deploy to Vercel**
+#### **Steps to Deploy**
+1. Log in to your [Vercel Dashboard](https://vercel.com/).
+2. Click on **New Project** and import your Git repository.
+3. Set up your **Environment Variables** if required.
+4. Click **Deploy** to start the build and deploy process.
+5. Your website will be live, and the deployment URL will be provided by Vercel.
 
-### Analyzing the Bundle Size
+### **2. Re-deploy to Vercel**
+If you’ve already deployed:
+- Push changes to your GitHub repository. Vercel will automatically trigger a redeployment.
+- Alternatively, redeploy manually by visiting the Vercel dashboard and clicking **Redeploy**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## **Usage**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### **Authentication**
+- Register a new user or log in with an existing account.
+- Admin users are redirected to the admin dashboard, while regular users are directed to the products page.
 
-### Advanced Configuration
+### **Product Features**
+- Browse products by category, search by name, and sort by price.
+- Add products to the cart and proceed to checkout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### **Checkout Process**
+- Enter shipping information.
+- Review the order summary and place the order.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## **Environment Variables**
+If your project requires environment variables (e.g., API URLs), add them in a `.env` file:
+```
+REACT_APP_API_URL=http://localhost:5000
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## **Contributing**
+Contributions are welcome! Follow these steps:
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Add feature-name"`.
+4. Push to your branch: `git push origin feature-name`.
+5. Open a pull request.
+
+---
+
+## **License**
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## **Contact**
+For any questions or feedback, reach out to:
+- **Name**: Muhammad Anwar
+- **Email**: anwarimdad@gmail.com
+- **LinkedIn**: [linkedin.com/in/muhammad-anwar16](https://linkedin.com/in/muhammad-anwar16)
