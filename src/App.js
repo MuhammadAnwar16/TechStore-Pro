@@ -46,7 +46,14 @@ function App() {
     </ProtectedRoute>
   }
 />
-
+<Route
+  path="/orders"
+  element={
+    <ProtectedRoute>
+      <OrderHistoryPage />
+    </ProtectedRoute>
+  }
+/>
 
             {/* Protected Routes */}
             <Route

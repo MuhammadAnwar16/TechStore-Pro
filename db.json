@@ -131,8 +131,8 @@
   "users": [
     {
       "id": "1",
-      "email": "anwarmuhammad@gmail.com",
-      "password": "admin123",
+      "email": "admin@gmail.com",
+      "password": "admin",
       "role": "admin"
     },
     {
@@ -150,6 +150,11 @@
       "id": "6026",
       "email": "ali@gmail.com",
       "password": "ali123"
+    },
+    {
+      "id": "ef7c",
+      "email": "anwarimdad@gmail.com",
+      "password": "anwar16-"
     }
   ],
   "orders": [
@@ -205,6 +210,28 @@
       },
       "total": 382.8,
       "date": "2025-01-18T00:24:02.605Z"
+    },
+    {
+      "id": 1737168434766,
+      "items": [
+        {
+          "id": 2,
+          "name": "Head",
+          "category": "Accessories",
+          "price": 49,
+          "image": "/static/media/head.e9cdf02e21bdba00bae0.jpg",
+          "description": "Ergonomic headgear for support.",
+          "quantity": 9
+        }
+      ],
+      "shippingInfo": {
+        "name": "MUHAMMAD SHEES",
+        "address": "KHANQAH YASEEN ZAI, P.O BOX PANIYALA, TEHSIL PAHARPUR, DISTRICT DERA ISMAIL KHAN",
+        "city": "PESHAWAR",
+        "postalCode": "22010"
+      },
+      "total": 485.1,
+      "date": "2025-01-18T02:47:14.766Z"
     }
   ]
 }

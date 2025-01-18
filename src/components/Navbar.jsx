@@ -101,61 +101,75 @@ const Navbar = () => {
             )}
           </Link>
 
-          {/* User Section */}
-          <div className="relative">
-            <button
-              onClick={toggleDropdown}
-              className="hover:text-blue-400 transition duration-200 ease-in-out flex items-center"
-              aria-label="User"
-            >
-              <FaUser size={20} />
-              {user && (
-                <span className="ml-2 text-sm font-medium truncate">
-                  {user.name}
-                </span>
-              )}
-            </button>
+         {/* User Section */}
+<div className="relative">
+  <button
+    onClick={toggleDropdown}
+    className="hover:text-blue-400 transition duration-200 ease-in-out flex items-center focus:outline-none"
+    aria-label="User"
+  >
+    <FaUser size={20} />
+    {user && (
+      <span className="ml-2 text-sm font-medium truncate">
+        {user.name}
+      </span>
+    )}
+  </button>
 
-            {/* Dropdown Menu */}
-            {showDropdown && (
-              <div
-                className="absolute right-0 mt-2 bg-white text-black w-48 rounded shadow-lg z-50"
-                onMouseLeave={() => setShowDropdown(false)}
-              >
-                {!user ? (
-                  <>
-                    <Link
-                      to="/login"
-                      className="block px-4 py-2 hover:bg-gray-100 transition"
-                      onClick={() => setShowDropdown(false)}
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      to="/register"
-                      className="block px-4 py-2 hover:bg-gray-100 transition"
-                      onClick={() => setShowDropdown(false)}
-                    >
-                      Register
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <p className="block px-4 py-2 text-sm text-gray-700">
-                      Logged in as: <strong>{user.name}</strong>
-                    </p>
-                    <button
-                      className="block px-4 py-2 text-left hover:bg-gray-100 transition w-full"
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </button>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
+  {/* Dropdown Menu */}
+  {showDropdown && (
+    <div
+      className="absolute right-0 mt-2 bg-white text-gray-800 w-56 rounded-lg shadow-lg z-50 border border-gray-200"
+      onMouseLeave={() => setShowDropdown(false)}
+    >
+      {!user ? (
+        <div className="py-2">
+          <Link
+            to="/login"
+            className="block px-4 py-2 hover:bg-gray-100 transition font-medium text-sm"
+            onClick={() => setShowDropdown(false)}
+          >
+            <FaUser className="inline-block mr-2" /> Login
+          </Link>
+          <Link
+            to="/register"
+            className="block px-4 py-2 hover:bg-gray-100 transition font-medium text-sm"
+            onClick={() => setShowDropdown(false)}
+          >
+            <FaUser className="inline-block mr-2" /> Register
+          </Link>
         </div>
+      ) : (
+        <div className="py-2">
+          <p className="block px-4 py-2 text-sm font-medium text-gray-600 border-b border-gray-200">
+            <span className="font-bold text-gray-800">Hello,</span> {user.name}
+          </p>
+          <Link
+            to="/profile"
+            className="block px-4 py-2 hover:bg-gray-100 transition font-medium text-sm"
+            onClick={() => setShowDropdown(false)}
+          >
+            <span className="inline-block w-5 text-gray-500 mr-2">👤</span> Profile
+          </Link>
+          <Link
+            to="/orders"
+            className="block px-4 py-2 hover:bg-gray-100 transition font-medium text-sm"
+            onClick={() => setShowDropdown(false)}
+          >
+            <span className="inline-block w-5 text-gray-500 mr-2">📦</span> My Orders
+          </Link>
+          <button
+            className="block px-4 py-2 w-full text-left hover:bg-gray-100 transition font-medium text-sm text-red-600"
+            onClick={handleLogout}
+          >
+            <span className="inline-block w-5 text-red-500 mr-2">🚪</span> Logout
+          </button>
+        </div>
+      )}
+    </div>
+  )}
+</div>
+</div>  
       </div>
     </nav>
   );

@@ -6,9 +6,14 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:5000/products");
-      const data = await response.json();
-      setProducts(data);
+      try {
+        const response = await fetch("http://localhost:5000/products");
+        if (!response.ok) throw new Error("Failed to fetch products.");
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
     };
     fetchProducts();
   }, []);
@@ -20,115 +25,149 @@ const AdminDashboard = () => {
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updatedProduct)
+          body: JSON.stringify(updatedProduct),
         }
       );
 
-      if (response.ok) {
-        setProducts(
-          products.map((product) =>
-            product.id === updatedProduct.id ? updatedProduct : product
-          )
-        );
-        setEditingProduct(null);
-        alert("Product updated successfully!");
-      }
+      if (!response.ok) throw new Error("Failed to update product.");
+      setProducts(
+        products.map((product) =>
+          product.id === updatedProduct.id ? updatedProduct : product
+        )
+      );
+      setEditingProduct(null);
+      alert("Product updated successfully!");
     } catch (error) {
       console.error("Error updating product:", error);
     }
   };
 
+  const handleDeleteProduct = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/products/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Failed to delete product.");
+      setProducts(products.filter((product) => product.id !== id));
+      alert("Product deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Admin Dashboard</h1>
+    <div className="p-8 bg-gray-50 min-h-screen">
+      <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">
+        Admin Dashboard
+      </h1>
 
       {/* Edit Product Form */}
       {editingProduct && (
-        <div className="mb-6">
-          <h2 className="text-xl font-bold mb-2">Edit Product</h2>
-          <input
-            type="text"
-            placeholder="Name"
-            value={editingProduct.name}
-            onChange={(e) =>
-              setEditingProduct({ ...editingProduct, name: e.target.value })
-            }
-            className="border p-2 rounded w-full mb-2"
-          />
-          <input
-            type="text"
-            placeholder="Category"
-            value={editingProduct.category}
-            onChange={(e) =>
-              setEditingProduct({ ...editingProduct, category: e.target.value })
-            }
-            className="border p-2 rounded w-full mb-2"
-          />
-          <input
-            type="number"
-            placeholder="Price"
-            value={editingProduct.price}
-            onChange={(e) =>
-              setEditingProduct({ ...editingProduct, price: e.target.value })
-            }
-            className="border p-2 rounded w-full mb-2"
-          />
-          <textarea
-            placeholder="Description"
-            value={editingProduct.description}
-            onChange={(e) =>
-              setEditingProduct({
-                ...editingProduct,
-                description: e.target.value
-              })
-            }
-            className="border p-2 rounded w-full mb-2"
-          />
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded w-full"
-            onClick={() => handleUpdateProduct(editingProduct)}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+          <h2 className="text-2xl font-bold mb-4">Edit Product</h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleUpdateProduct(editingProduct);
+            }}
           >
-            Update Product
-          </button>
-          <button
-            className="bg-red-500 text-white px-4 py-2 rounded w-full mt-2"
-            onClick={() => setEditingProduct(null)}
-          >
-            Cancel
-          </button>
+            <input
+              type="text"
+              placeholder="Name"
+              value={editingProduct.name}
+              onChange={(e) =>
+                setEditingProduct({ ...editingProduct, name: e.target.value })
+              }
+              className="border p-3 rounded w-full mb-4 shadow-sm focus:ring focus:ring-blue-300"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Category"
+              value={editingProduct.category}
+              onChange={(e) =>
+                setEditingProduct({
+                  ...editingProduct,
+                  category: e.target.value,
+                })
+              }
+              className="border p-3 rounded w-full mb-4 shadow-sm focus:ring focus:ring-blue-300"
+              required
+            />
+            <input
+              type="number"
+              placeholder="Price"
+              value={editingProduct.price}
+              onChange={(e) =>
+                setEditingProduct({ ...editingProduct, price: e.target.value })
+              }
+              className="border p-3 rounded w-full mb-4 shadow-sm focus:ring focus:ring-blue-300"
+              required
+            />
+            <textarea
+              placeholder="Description"
+              value={editingProduct.description}
+              onChange={(e) =>
+                setEditingProduct({
+                  ...editingProduct,
+                  description: e.target.value,
+                })
+              }
+              className="border p-3 rounded w-full mb-4 shadow-sm focus:ring focus:ring-blue-300"
+              required
+            ></textarea>
+            <div className="flex justify-end gap-4">
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition"
+              >
+                Save Changes
+              </button>
+              <button
+                type="button"
+                onClick={() => setEditingProduct(null)}
+                className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600 transition"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
         </div>
       )}
 
       {/* Product List */}
-      <h2 className="text-xl font-bold mb-2">Manage Products</h2>
-      {products.map((product) => (
-        <div key={product.id} className="border p-4 rounded mb-2 flex justify-between items-center">
-          <div>
-            <h3 className="font-bold">{product.name}</h3>
-            <p>{product.category}</p>
-            <p>${product.price}</p>
+      <h2 className="text-2xl font-bold mb-4">Manage Products</h2>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between hover:shadow-lg transition"
+          >
+            <div>
+              <h3 className="font-bold text-lg text-gray-800">{product.name}</h3>
+              <p className="text-sm text-gray-600">{product.category}</p>
+              <p className="text-lg text-green-600 font-semibold">
+                ${product.price}
+              </p>
+            </div>
+            <div className="flex justify-end gap-2 mt-4">
+              <button
+                onClick={() => setEditingProduct(product)}
+                className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDeleteProduct(product.id)}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+              >
+                Delete
+              </button>
+            </div>
           </div>
-          <div className="flex gap-2">
-            <button
-              className="bg-yellow-500 text-white px-4 py-2 rounded"
-              onClick={() => setEditingProduct(product)}
-            >
-              Edit
-            </button>
-            <button
-              className="bg-red-500 text-white px-4 py-2 rounded"
-              onClick={async () => {
-                await fetch(`http://localhost:5000/products/${product.id}`, {
-                  method: "DELETE"
-                });
-                setProducts(products.filter((p) => p.id !== product.id));
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
