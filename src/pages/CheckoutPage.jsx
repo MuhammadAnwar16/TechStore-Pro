@@ -6,6 +6,7 @@ const CheckoutPage = () => {
   const { cart, dispatch } = useCart();
   const [shippingInfo, setShippingInfo] = useState({
     name: "",
+    email: "",
     address: "",
     city: "",
     postalCode: "",
@@ -21,7 +22,8 @@ const CheckoutPage = () => {
   };
 
   const handlePlaceOrder = async () => {
-    if (!shippingInfo.name || !shippingInfo.address || !shippingInfo.city || !shippingInfo.postalCode) {
+    const { name, email, address, city, postalCode } = shippingInfo;
+    if (!name || !email || !address || !city || !postalCode) {
       alert("Please fill out all shipping information.");
       return;
     }
@@ -68,6 +70,18 @@ const CheckoutPage = () => {
                 name="name"
                 placeholder="Full Name"
                 value={shippingInfo.name}
+                onChange={handleInputChange}
+                className="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 p-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
+
+            <div className="relative">
+              <FaEnvelope className="absolute top-4 left-4 text-gray-400" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={shippingInfo.email}
                 onChange={handleInputChange}
                 className="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 p-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               />

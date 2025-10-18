@@ -9,7 +9,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-gray-800 to-gray-700 text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
+    <div className="bg-[#2D2217] text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
       <h1 className="text-4xl font-bold">
         {getGreeting()} Welcome to Solovair
       </h1>

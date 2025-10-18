@@ -5,7 +5,7 @@ const AboutPage = () => {
   return (
     <div className="bg-[#f9f9f9] min-h-screen font-inter text-gray-800">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-gray-800 to-gray-700 text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
+      <section className="bg-[#2D2217] text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -46,7 +46,7 @@ const ProductsPage = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12 px-4 sm:px-6 md:py-16 md:px-12 rounded-2xl shadow-lg text-center mb-8 sm:mb-12">
+      <div className="bg-[#2D2217] text-white py-12 px-4 sm:px-6 md:py-16 md:px-12 rounded-2xl shadow-lg text-center mb-8 sm:mb-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide uppercase">
           Our Collection
         </h1>

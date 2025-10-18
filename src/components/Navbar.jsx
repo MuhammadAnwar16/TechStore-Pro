@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-gray-800 to-gray-700 text-white px-6 py-0 shadow-md fixed top-0 left-0 w-full z-50">
+    <nav className="bg-[#2D2217] text-white px-6 py-0 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16">
         {/* Logo Section */}
         <div className="flex items-center space-x-3">

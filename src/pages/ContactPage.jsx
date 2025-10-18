@@ -5,7 +5,7 @@ const ContactPage = () => {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white min-h-screen py-16 px-6">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-gray-800 to-gray-700 text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
+      <div className="bg-[#2D2217] text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
         <h1 className="text-5xl font-extrabold mb-4 tracking-tight">Contact Us</h1>
         <p className="text-lg text-gray-200 max-w-2xl mx-auto">
           Have a question, feedback, or business inquiry? We’re always here to help you.

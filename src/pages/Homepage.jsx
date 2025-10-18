@@ -63,7 +63,7 @@ const Homepage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-gradient-to-r from-gray-800 to-gray-700 text-white text-center py-20 px-8">
+      <section className="bg-[#2D2217] text-white text-center py-20 px-8">
         <h2 className="text-4xl md:text-5xl font-playfair mb-4">
           Elevate Your Everyday
         </h2>
