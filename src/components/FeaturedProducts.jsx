@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import tryImg from "../assets/try.png";
+
 
 const featuredProducts = [
   {
@@ -8,28 +10,28 @@ const featuredProducts = [
     name: "Classic Solovair Boot",
     description: "Handcrafted heritage design with premium leather finish.",
     price: 299,
-    image: "https://images.unsplash.com/photo-1606813902913-f6e8ef9a9f59?auto=format&fit=crop&w=800&q=80",
+    image: tryImg,
   },
   {
     id: 2,
     name: "Chelsea Boot",
     description: "Sleek silhouette blending timeless style and modern comfort.",
     price: 279,
-    image: "https://images.unsplash.com/photo-1603808033192-6f6d8b4ffbb1?auto=format&fit=crop&w=800&q=80",
+    image: tryImg,
   },
   {
     id: 3,
     name: "Oxford Dress Boot",
     description: "Refined craftsmanship for sophisticated urban looks.",
     price: 319,
-    image: "https://images.unsplash.com/photo-1589187155470-1c6736e796de?auto=format&fit=crop&w=800&q=80",
+    image: tryImg,
   },
   {
     id: 4,
     name: "Derby Utility Boot",
     description: "Rugged durability with elite detailing for all-day wear.",
     price: 289,
-    image: "https://images.unsplash.com/photo-1593032465171-d40b1a6be8b4?auto=format&fit=crop&w=800&q=80",
+    image: tryImg,
   },
 ];
 
