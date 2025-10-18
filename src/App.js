@@ -56,20 +56,12 @@ function App() {
 />
 
             {/* Protected Routes */}
-            <Route
-              path="/products"
-              element={
-                <ProtectedRoute>
-                  <ProductsPage />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/products" element={<ProductsPage />} />
+
             <Route
               path="/cart"
               element={
-                <ProtectedRoute>
                   <CartPage />
-                </ProtectedRoute>
               }
             />
             <Route
