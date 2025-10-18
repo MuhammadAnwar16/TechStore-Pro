@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../context/CartContext";
+import { FaUser, FaMapMarkerAlt, FaCity, FaEnvelope, FaBoxOpen } from "react-icons/fa";
 
 const CheckoutPage = () => {
   const { cart, dispatch } = useCart();
@@ -11,7 +12,7 @@ const CheckoutPage = () => {
   });
 
   const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const tax = subtotal * 0.1; // Assuming 10% tax
+  const tax = subtotal * 0.1;
   const grandTotal = subtotal + tax;
 
   const handleInputChange = (e) => {
@@ -40,9 +41,7 @@ const CheckoutPage = () => {
         body: JSON.stringify(order),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to save order.");
-      }
+      if (!response.ok) throw new Error("Failed to save order.");
 
       alert("Order placed successfully!");
       dispatch({ type: "CLEAR_CART" });
@@ -53,79 +52,96 @@ const CheckoutPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center py-8">
-      <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">Checkout</h1>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white flex items-center justify-center py-12 px-4">
+      <div className="max-w-6xl w-full bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-10 grid md:grid-cols-2 gap-10">
+        {/* LEFT: Shipping Info */}
+        <div>
+          <h2 className="text-3xl font-bold mb-6 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-300">
+            Shipping Information
+          </h2>
 
-        {/* Shipping Info */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-700 mb-4">Shipping Information</h2>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={shippingInfo.name}
-              onChange={handleInputChange}
-              className="border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-            <input
-              type="text"
-              name="address"
-              placeholder="Address"
-              value={shippingInfo.address}
-              onChange={handleInputChange}
-              className="border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              value={shippingInfo.city}
-              onChange={handleInputChange}
-              className="border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-            <input
-              type="text"
-              name="postalCode"
-              placeholder="Postal Code"
-              value={shippingInfo.postalCode}
-              onChange={handleInputChange}
-              className="border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              required
-            />
-          </form>
-        </div>
+          <div className="space-y-5">
+            <div className="relative">
+              <FaUser className="absolute top-4 left-4 text-gray-400" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={shippingInfo.name}
+                onChange={handleInputChange}
+                className="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 p-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
 
-        {/* Order Summary */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-700 mb-4">Order Summary</h2>
-          <div className="bg-gray-50 p-4 rounded-lg shadow">
-            <p className="flex justify-between text-gray-600">
-              <span>Subtotal:</span>
-              <span>${subtotal.toFixed(2)}</span>
-            </p>
-            <p className="flex justify-between text-gray-600">
-              <span>Tax (10%):</span>
-              <span>${tax.toFixed(2)}</span>
-            </p>
-            <p className="flex justify-between font-bold text-gray-800 mt-2">
-              <span>Total:</span>
-              <span>${grandTotal.toFixed(2)}</span>
-            </p>
+            <div className="relative">
+              <FaMapMarkerAlt className="absolute top-4 left-4 text-gray-400" />
+              <input
+                type="text"
+                name="address"
+                placeholder="Address"
+                value={shippingInfo.address}
+                onChange={handleInputChange}
+                className="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 p-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
+
+            <div className="relative">
+              <FaCity className="absolute top-4 left-4 text-gray-400" />
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                value={shippingInfo.city}
+                onChange={handleInputChange}
+                className="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 p-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
+
+            <div className="relative">
+              <FaEnvelope className="absolute top-4 left-4 text-gray-400" />
+              <input
+                type="text"
+                name="postalCode"
+                placeholder="Postal Code"
+                value={shippingInfo.postalCode}
+                onChange={handleInputChange}
+                className="w-full bg-white/5 border border-white/20 text-white placeholder-gray-400 pl-12 p-4 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Place Order Button */}
-        <button
-          onClick={handlePlaceOrder}
-          className="w-full bg-green-500 text-white py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-all duration-200"
-        >
-          Place Order
-        </button>
+        {/* RIGHT: Order Summary */}
+        <div className="bg-white/10 rounded-2xl shadow-xl p-8">
+          <div className="flex items-center mb-6">
+            <FaBoxOpen className="text-blue-400 text-3xl mr-3" />
+            <h2 className="text-3xl font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-300">
+              Order Summary
+            </h2>
+          </div>
+
+          <div className="space-y-3 text-gray-200">
+            <div className="flex justify-between border-b border-white/10 pb-2">
+              <span>Subtotal:</span>
+              <span>${subtotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between border-b border-white/10 pb-2">
+              <span>Tax (10%):</span>
+              <span>${tax.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between font-semibold text-lg mt-4">
+              <span>Total:</span>
+              <span>${grandTotal.toFixed(2)}</span>
+            </div>
+          </div>
+
+          <button
+            onClick={handlePlaceOrder}
+            className="w-full mt-8 bg-gradient-to-r from-blue-500 to-teal-400 py-4 rounded-xl font-semibold text-white text-lg shadow-lg hover:shadow-blue-500/40 hover:scale-[1.02] transition-all duration-300"
+          >
+            Place Order
+          </button>
+        </div>
       </div>
     </div>
   );

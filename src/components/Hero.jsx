@@ -9,13 +9,15 @@ const Hero = () => {
   };
 
   return (
-    <div className="bg-[#35393d] text-white py-9 text-center mt-0 mx-2 rounded-lg shadow-lg">
-      <h1 className="text-4xl font-bold">{getGreeting()} Welcome to TechStore Pro</h1>
+    <div className="bg-gradient-to-r from-gray-800 to-gray-700 text-white py-14 px-8 rounded-2xl shadow-lg text-center mb-16">
+      <h1 className="text-4xl font-bold">
+        {getGreeting()} Welcome to Solovair
+      </h1>
       <p className="text-lg mt-4">
-        Explore the best tech deals and upgrade your life with cutting-edge gadgets.
+        Discover timeless elegance and soulful design — crafted for spiritual and aesthetic harmony.
       </p>
       <button className="bg-blue-500 text-white px-6 py-3 rounded mt-6 font-bold hover:bg-blue-600 transition">
-        Shop Now
+        Explore Now
       </button>
     </div>
   );

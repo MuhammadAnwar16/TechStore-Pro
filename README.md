@@ -1,9 +1,3 @@
-# **TechStore Pro**
-
-TechStore Pro is a modern e-commerce platform designed to showcase and sell tech products. The website features a user-friendly interface, a responsive design, and functionalities such as user authentication, product filtering, cart management, and a streamlined checkout process. 
-
----
-
 ## **Features**
 
 ### **Frontend Features**
@@ -24,7 +18,7 @@ TechStore Pro is a modern e-commerce platform designed to showcase and sell tech
 ## **Tech Stack**
 - **Frontend**: React, Tailwind CSS, React Router, Framer Motion, React Icons
 - **Backend**: JSON Server
-- **Deployment**: Vercel (for frontend), Local JSON Server (for backend)
+- **Deployment**: Vercel (for frontend), JSON Server (for backend)
 
 ---
 
@@ -34,15 +28,6 @@ TechStore Pro is a modern e-commerce platform designed to showcase and sell tech
 1. Node.js installed (v14+ recommended).
 2. Git installed on your system.
 3. A Vercel account for deployment.
-
----
-
-### **Cloning the Repository**
-To clone the repository:
-```bash
-git clone https://github.com/your-username/techstore-pro.git
-cd techstore-pro
-```
 
 ---
 
@@ -129,23 +114,3 @@ REACT_APP_API_URL=http://localhost:5000
 
 ---
 
-## **Contributing**
-Contributions are welcome! Follow these steps:
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature-name`.
-3. Commit your changes: `git commit -m "Add feature-name"`.
-4. Push to your branch: `git push origin feature-name`.
-5. Open a pull request.
-
----
-
-## **License**
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## **Contact**
-For any questions or feedback, reach out to:
-- **Name**: Muhammad Anwar
-- **Email**: anwarimdad@gmail.com
-- **LinkedIn**: [linkedin.com/in/muhammad-anwar16](https://linkedin.com/in/muhammad-anwar16)

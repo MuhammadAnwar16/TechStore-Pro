@@ -1,75 +1,81 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import laptopImage from "../assets/laptop.jpg";
-import headphonesImage from "../assets/headphones.jpg";
-import smartphoneImage from "../assets/smartphone.jpg";
-import keyboardImage from "../assets/key.jpg";
+import { motion } from "framer-motion";
 
 const featuredProducts = [
   {
     id: 1,
-    name: "Laptop",
-    description: "High-performance laptop",
-    price: 999,
-    image: laptopImage,
+    name: "Classic Solovair Boot",
+    description: "Handcrafted heritage design with premium leather finish.",
+    price: 299,
+    image: "https://images.unsplash.com/photo-1606813902913-f6e8ef9a9f59?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 2,
-    name: "Headphones",
-    description: "Noise-cancelling headphones",
-    price: 199,
-    image: headphonesImage,
+    name: "Chelsea Boot",
+    description: "Sleek silhouette blending timeless style and modern comfort.",
+    price: 279,
+    image: "https://images.unsplash.com/photo-1603808033192-6f6d8b4ffbb1?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 3,
-    name: "Smartphone",
-    description: "Latest smartphone model",
-    price: 799,
-    image: smartphoneImage,
+    name: "Oxford Dress Boot",
+    description: "Refined craftsmanship for sophisticated urban looks.",
+    price: 319,
+    image: "https://images.unsplash.com/photo-1589187155470-1c6736e796de?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 4,
-    name: "Keyboard",
-    description: "Mechanical keyboard",
-    price: 129,
-    image: keyboardImage,
+    name: "Derby Utility Boot",
+    description: "Rugged durability with elite detailing for all-day wear.",
+    price: 289,
+    image: "https://images.unsplash.com/photo-1593032465171-d40b1a6be8b4?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
 const FeaturedProducts = () => {
   return (
-    <div className="p-8">
-      <h2 className="text-2xl font-bold mb-4 text-center">Featured Products</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {featuredProducts.map((product) => (
-          <div
+    <div className="py-16 px-6 bg-white font-inter">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {featuredProducts.map((product, index) => (
+          <motion.div
             key={product.id}
-            className="border p-4 rounded-lg shadow hover:shadow-lg transition-shadow flex flex-col justify-between"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.15 }}
+            whileHover={{ scale: 1.03 }}
+            className="bg-[#fafafa] border border-gray-200 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
           >
-            {/* Image Wrapper */}
-            <div className="aspect-w-16 aspect-h-9 mb-4 rounded-lg overflow-hidden">
+            {/* Product Image */}
+            <div className="relative w-full h-56 overflow-hidden">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
 
             {/* Product Details */}
-            <div className="flex-grow">
-              <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-              <p className="text-gray-600 mb-2">{product.description}</p>
-              <p className="text-green-600 font-bold mb-4">${product.price}</p>
+            <div className="p-6 flex flex-col flex-grow">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-playfair">
+                {product.name}
+              </h3>
+              <p className="text-gray-600 text-sm flex-grow">{product.description}</p>
+              <p className="text-gray-800 font-semibold mt-4 text-lg">
+                ${product.price}
+              </p>
             </div>
 
             {/* Button */}
-            <Link
-              to="/products"
-              className="bg-blue-500 text-white px-4 py-2 rounded mt-auto block text-center hover:bg-blue-600 transition"
-            >
-              Shop Now
-            </Link>
-          </div>
+            <div className="px-6 pb-6">
+              <Link
+                to="/products"
+                className="block text-center bg-[#35393d] text-white py-2.5 rounded-full font-medium hover:bg-black transition"
+              >
+                Explore
+              </Link>
+            </div>
+          </motion.div>
         ))}
       </div>
     </div>
