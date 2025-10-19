@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../components/Hero";
 import FeaturedProducts from "../components/FeaturedProducts";
 import { motion } from "framer-motion";
-import { ShieldCheck, Gem, Headphones } from "lucide-react";
+import { ShieldCheck, Gem, Handshake } from "lucide-react";
 
 
 const Homepage = () => {
@@ -45,7 +45,7 @@ const Homepage = () => {
   {
     title: "Dedicated Support",
     description: "Our team ensures seamless service from inquiry to aftercare.",
-    icon: <Headphones size={48} className="mx-auto text-[#35393d]" />,
+    icon: <Handshake size={48} className="mx-auto text-[#35393d]" />,
   },
 ].map((item, i) => (
   <motion.div
