@@ -77,21 +77,11 @@ const Homepage = () => {
 
       {/* Newsletter */}
       <section className="bg-gray-100 py-16 px-8 text-center">
-        <h2 className="text-3xl font-playfair mb-3">Stay Updated</h2>
-        <p className="text-gray-600 mb-8 max-w-lg mx-auto">
-          Subscribe to receive updates on new arrivals and exclusive offers.
-        </p>
-        <div className="flex justify-center">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="p-3 rounded-l-full w-1/2 md:w-1/3 border shadow-sm focus:outline-none"
-          />
-          <button className="bg-[#35393d] text-white px-6 py-3 rounded-r-full font-semibold hover:bg-black transition">
-            Subscribe
-          </button>
-        </div>
-      </section>
+  <h2 className="text-3xl font-playfair mb-3">Stay Updated</h2>
+  <p className="text-gray-600 mb-8 max-w-lg mx-auto">
+    Stay connected with us on Facebook, Instagram, and WhatsApp for the latest updates and offers.
+  </p>
+  </section>
     </div>
   );
 };
